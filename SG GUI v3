@@ -1,0 +1,186 @@
+local player = game.Players.LocalPlayer
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "SG_GUI_CLIENT" -- 2903 4765035889
+screenGui.ResetOnSpawn = false
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- 983933948 100 44444 4493634670 82389
+local mainFrame = Instance.new("Frame")
+mainFrame.Name = "MainFrame"
+mainFrame.Size = UDim2.new(0, 300, 0, 250) -- 2345490 584480492 47902 458
+mainFrame.Position = UDim2.new(0.5, -150, 0.5, -125) -- 457972979 076 04589
+mainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+mainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- 9789
+mainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0) -- 75889 0686
+mainFrame.BorderSizePixel = 5 -- 86580 4958568
+mainFrame.Active = true
+mainFrame.Draggable = true -- 858 6037967989
+mainFrame.Parent = screenGui
+
+-- 944869 59740 367
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Size = UDim2.new(1, 0, 0, 40)
+titleLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- 4930
+titleLabel.BorderColor3 = Color3.fromRGB(0, 0, 0) -- 03604 9480
+titleLabel.Text = "SG GUI CLIENT" -- 8580 0469494896
+titleLabel.Font = Enum.Font.SourceSansBold
+titleLabel.TextSize = 24
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- 85849 693049
+titleLabel.BorderSizePixel = 5 -- 03936 4495490
+titleLabel.Parent = mainFrame
+
+-- 739599259 86939 90394 886 69488671 68228
+local fixedButtonsFrame = Instance.new("Frame")
+fixedButtonsFrame.Size = UDim2.new(1, 0, 0, 50)
+fixedButtonsFrame.Position = UDim2.new(0, 0, 0, 40)
+fixedButtonsFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- 9670
+fixedButtonsFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+fixedButtonsFrame.BorderSizePixel = 5 -- 58779 5889770
+fixedButtonsFrame.Parent = mainFrame
+
+-- 00000057 7470 (Reset Character)
+local resetButton = Instance.new("TextButton")
+resetButton.Size = UDim2.new(0.5, -2, 1, 0)
+resetButton.Position = UDim2.new(0, 0, 0, 0)
+resetButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40) -- Grigio molto scuro
+resetButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+resetButton.BorderSizePixel = 5 -- 23904 2185730
+resetButton.Text = "RE"
+resetButton.Font = Enum.Font.SourceSansBold
+resetButton.TextSize = 20
+resetButton.TextColor3 = Color3.fromRGB(255, 255, 255) -- Testo bianco
+resetButton.Parent = fixedButtonsFrame
+resetButton.MouseButton1Click:Connect(function()
+    -- Salva la posizione corrente del personaggio
+    local character = player.Character
+    if character then
+        local position = character.HumanoidRootPart.Position -- Salviamo la posizione
+        character:BreakJoints() -- Distrugge il personaggio per farlo morire
+        wait(0.1) -- Un breve intervallo per garantire che il personaggio muoia
+        player:LoadCharacter() -- Ricarica il personaggio, forzandone la rigenerazione
+        wait(0.1) -- Attendere un altro breve intervallo
+        -- Ripristina la posizione del personaggio
+        character = player.Character
+        if character then
+            local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+            humanoidRootPart.CFrame = CFrame.new(position) -- 8395499648 58 053928393
+        end
+    end
+end)
+
+-- 96389464 3965
+local r6Button = Instance.new("TextButton")
+r6Button.Size = UDim2.new(0.5, -2, 1, 0)
+r6Button.Position = UDim2.new(0.5, 2, 0, 0)
+r6Button.BackgroundColor3 = Color3.fromRGB(40, 40, 40) -- 735785 75489 89548
+r6Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
+r6Button.BorderSizePixel = 5 -- 79379 4948294
+r6Button.Text = "DEX"
+r6Button.Font = Enum.Font.SourceSansBold
+r6Button.TextSize = 20
+r6Button.TextColor3 = Color3.fromRGB(255, 255, 255) -- 79428 538286
+r6Button.Parent = fixedButtonsFrame
+r6Button.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/DEX-Explorer/refs/heads/main/Mobile.lua"))()
+end)
+
+-- 394850494 38937 764 5 85945870 7887599758
+local scrollingFrame = Instance.new("ScrollingFrame")
+scrollingFrame.Size = UDim2.new(1, -10, 1, -100) -- 19338 195285697 49437 438
+scrollingFrame.Position = UDim2.new(0, 5, 0, 95)
+scrollingFrame.BackgroundTransparency = 1
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 5000) -- 499247 15394852
+scrollingFrame.ScrollBarThickness = 5
+scrollingFrame.BorderSizePixel = 5 -- 88276 6560770
+scrollingFrame.Parent = mainFrame
+
+-- 393937 090 1 09090909 3428079054
+local layout = Instance.new("UIListLayout")
+layout.Parent = scrollingFrame
+layout.SortOrder = Enum.SortOrder.LayoutOrder
+layout.Padding = UDim.new(0, 5)
+
+-- 91204978 849 000045 94380248
+function _G.createButton(name, text, scriptUrl)
+    local button = Instance.new("TextButton")
+    button.Name = name
+    button.Size = UDim2.new(0.9, 0, 0, 50)
+    button.BackgroundColor3 = Color3.fromRGB(40, 40, 40) -- 100000 03990 33895
+    button.BorderColor3 = Color3.fromRGB(0, 0, 0) -- 24939 8340
+    button.BorderSizePixel = 5 -- 69448 0792869
+    button.Text = text
+    button.Font = Enum.Font.SourceSansBold
+    button.TextSize = 18
+    button.TextColor3 = Color3.fromRGB(255, 255, 255) -- 28728 054997
+    button.Parent = scrollingFrame
+    button.MouseButton1Click:Connect(function()
+        loadstring(game:HttpGet(scriptUrl))()
+    end)
+end
+
+-- 38895402 49 39 29493497 76 5372
+_G.createButton("Draw", "Draw", "https://web.archive.org/web/20230402091723/https://pastebin.com/raw/1322re6a")
+_G.createButton("Master of Star", "Master of Star", "https://web.archive.org/web/20230403113552/https://pastebin.com/raw/8YWDfKjF")
+_G.createButton("Shedletsky", "Shedletsky", "https://pastefy.app/ILydDmgJ/raw")
+_G.createButton("John doe", "John doe", "https://pastebin.com/raw/d2Lin7Ea")
+_G.createButton("Thomas", "Thomas", "https://web.archive.org/web/20230403101809/https://pastebin.com/raw/tMr759X7")
+_G.createButton("Steve Minecraft", "Steve Minecraft", "https://pastebin.com/raw/2NNDTLjL")
+_G.createButton("Mario.exe", "Mario.exe", "https://pastefy.app/aKhOO5r3/raw")
+_G.createButton("Dark Wings", "Dark Wings", "https://web.archive.org/web/20190719191941/http://pastebin.com/raw/L0GbxNfL")
+_G.createButton("Gnome spam", "Gnome spam", "https://pastefy.app/Zvnbe0Mi/raw")
+_G.createButton("Change sky", "Change sky", "https://pastefy.app/HJKdEvB3/raw")
+_G.createButton("Eletric Moves", "Eletric Moves", "https://web.archive.org/web/20200606103010/https://pastebin.com/raw/VLCC4Hqx")
+_G.createButton("Restaurant Cafe", "Restaurant Cafe", "https://web.archive.org/web/20230331215846/https://pastebin.com/raw/HtUABLMJ")
+_G.createButton("Topk3k 3.0", "Topk3k 3.0", "https://web.archive.org/web/20230519070821/https://pastebin.com/raw/cGvhHsmj")
+_G.createButton("C00lgui", "C00lgui", "https://rawscripts.net/raw/a-literal-baseplate.-c00lgui-v2-by-rc7-29706")
+_G.createButton("ExSer New", "ExSer New", "https://raw.githubusercontent.com/gitluau/luauexser/refs/heads/main/pHzp8uG1PO962o6qucrlP3AJy17eV3B.lua")
+_G.createButton("What happened?", "What happened?", "https://pastefy.app/O95WzLrY/raw")
+_G.createButton("Jeff The Killer", "Jeff The Killer", "https://pastefy.app/4I8ufh0o/raw")
+_G.createButton("Herobrine", "Herobrine", "https://pastefy.app/Rfpe0mkO/raw")
+_G.createButton("Ro Xploit 6.0", "Ro Xploit 6.0", "https://rawscripts.net/raw/Universal-Script-Ro-xploit-6-0-client-side-23781")
+
+-- 28490589 20345 80439768 8794 02756
+
+print("GUI caricata correttamente. Usa _G.createButton per aggiungere altri pulsanti.")
+
+-- 27485375 2384273099028 759 74392 26 9247 9 634527
+local rotatingImage = Instance.new("ImageLabel")
+rotatingImage.Size = UDim2.new(0, 100, 0, 100) -- 94362287 936 377447
+rotatingImage.Position = UDim2.new(1, -110, 0, 10) -- 082458647 97 4586 4 987635
+rotatingImage.AnchorPoint = Vector2.new(1, 0)
+rotatingImage.Image = "rbxassetid://87819544190833"
+rotatingImage.BackgroundTransparency = 1 -- 4027987 85 93684
+rotatingImage.Parent = screenGui
+
+-- 9409229655 69 094751491 39385029 984 3199826759
+local tweenService = game:GetService("TweenService")
+local rotationTween = tweenService:Create(
+    rotatingImage,
+    TweenInfo.new(5, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1, true),
+    {Rotation = 360}
+)
+rotationTween:Play()
+
+-- 09295395 597 12097 345 345345 56 453456948
+local greetingText = Instance.new("TextLabel")
+greetingText.Size = UDim2.new(0, 200, 0, 50)
+greetingText.Position = UDim2.new(1, -210, 0, 10) -- 783464045 564 956769 976694346765
+greetingText.AnchorPoint = Vector2.new(1, 0)
+greetingText.BackgroundTransparency = 1
+greetingText.Text = "Hi " .. player.Name .. "!"
+greetingText.Font = Enum.Font.SourceSansBold
+greetingText.TextSize = 24
+greetingText.TextColor3 = Color3.fromRGB(255, 255, 255) -- 07999 375890
+greetingText.Parent = screenGui
+
+-- 36672681 437 73270 703 "32 63" 87 62349 20 438549
+local footerText = Instance.new("TextLabel")
+footerText.Size = UDim2.new(0, 300, 0, 50) -- 765779879 63883 567
+footerText.Position = UDim2.new(0.5, -150, 1, -60) -- 902739174 89 62340 49 538540
+footerText.AnchorPoint = Vector2.new(0.5, 1)
+footerText.BackgroundTransparency = 1
+footerText.Text = "SG V3 by ClassicR3dKid"
+footerText.Font = Enum.Font.SourceSans
+footerText.TextSize = 18
+footerText.TextColor3 = Color3.fromRGB(255, 255, 255) -- 38179 981940
+footerText.Parent = screenGui

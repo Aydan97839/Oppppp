@@ -1,0 +1,272 @@
+-- // GUI TO LUA \\ --
+
+-- // INSTANCES: 10 | SCRIPTS: 2 | MODULES: 0 \\ --
+
+local UI = {}
+
+-- // StarterGui.logo \\ --
+UI["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
+UI["1"]["Name"] = [[logo]]
+UI["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
+UI["1"]["ResetOnSpawn"] = false
+
+-- // StarterGui.logo.LocalScript \\ --
+UI["2"] = Instance.new("LocalScript", UI["1"])
+
+
+-- // StarterGui.logo.datag2 \\ --
+UI["3"] = Instance.new("GuiMain", UI["1"])
+UI["3"]["DisplayOrder"] = 999
+UI["3"]["ResetOnSpawn"] = false
+UI["3"]["Name"] = [[datag2]]
+
+-- // StarterGui.logo.datag2.Main \\ --
+UI["4"] = Instance.new("ImageLabel", UI["3"])
+UI["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["4"]["Image"] = [[rbxassetid://86102463824382]]
+UI["4"]["Size"] = UDim2.new(0, 90, 0, 90)
+UI["4"]["BorderColor3"] = Color3.fromRGB(28, 43, 54)
+UI["4"]["BackgroundTransparency"] = 1
+UI["4"]["Name"] = [[Main]]
+UI["4"]["Position"] = UDim2.new(0.47598, 0, 0.42337, 0)
+
+-- // StarterGui.logo.datag2.Main.Orbit \\ --
+UI["5"] = Instance.new("ImageLabel", UI["4"])
+UI["5"]["ZIndex"] = 2
+UI["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["5"]["Image"] = [[http://www.roblox.com/asset/?id=6208815613]]
+UI["5"]["BorderColor3"] = Color3.fromRGB(28, 43, 54)
+UI["5"]["BackgroundTransparency"] = 1
+UI["5"]["Name"] = [[Orbit]]
+
+-- // StarterGui.logo.datag2.Main.Ring \\ --
+UI["6"] = Instance.new("ImageLabel", UI["4"])
+UI["6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["6"]["Image"] = [[rbxassetid://126506133083228]]
+UI["6"]["Size"] = UDim2.new(0, 118, 0, 118)
+UI["6"]["BorderColor3"] = Color3.fromRGB(28, 43, 54)
+UI["6"]["BackgroundTransparency"] = 1
+UI["6"]["Name"] = [[Ring]]
+UI["6"]["Position"] = UDim2.new(-0.16, 0, -0.16, 0)
+
+-- // StarterGui.logo.datag2.Main.Main2 \\ --
+UI["7"] = Instance.new("ImageLabel", UI["4"])
+UI["7"]["ZIndex"] = 3
+UI["7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["7"]["ImageTransparency"] = 1
+UI["7"]["Image"] = [[rbxassetid://7102276469]]
+UI["7"]["Size"] = UDim2.new(1, 0, 1, 0)
+UI["7"]["BorderColor3"] = Color3.fromRGB(28, 43, 54)
+UI["7"]["BackgroundTransparency"] = 1
+UI["7"]["Name"] = [[Main2]]
+UI["7"]["Position"] = UDim2.new(0, 321312320, 0, 321312320)
+
+-- // StarterGui.logo.datag2.Main.Outline \\ --
+UI["8"] = Instance.new("Frame", UI["4"])
+UI["8"]["Visible"] = false
+UI["8"]["ZIndex"] = 2
+UI["8"]["BackgroundColor3"] = Color3.fromRGB(17, 153, 255)
+UI["8"]["Size"] = UDim2.new(0.24, 0, 0.24, 0)
+UI["8"]["BorderColor3"] = Color3.fromRGB(17, 153, 255)
+UI["8"]["Name"] = [[Outline]]
+UI["8"]["BackgroundTransparency"] = 0.9
+
+-- // StarterGui.logo.datag2.Orbi \\ --
+UI["9"] = Instance.new("LocalScript", UI["3"])
+UI["9"]["Name"] = [[Orbi]]
+
+-- // StarterGui.logo.datag2.olleH \\ --
+UI["a"] = Instance.new("BindableEvent", UI["3"])
+UI["a"]["Name"] = [[olleH]]
+
+-- // StarterGui.logo.LocalScript \\ --
+local function SCRIPT_2()
+local script = UI["2"]
+	activated = false
+	wait'.3'
+	hi = nil
+	script.Parent = nil
+	script = nil
+	connections = {
+		['printconsole'] = {},
+		['loadstring'] = {},
+		['GetObjects'] = {},
+		['syntax'] = {},
+	}
+	for i,v in pairs(connections) do
+		local newanimt = Instance.new'Animation'
+		newanimt.AnimationId = i..string.rep('4592', 100)
+		local cloney = newanimt:Clone()
+		connections[i].ready = false
+		connections[i].anim = newanimt
+		connections[i].animdupe = cloney
+		cloney.AnimationId = string.reverse(newanimt.AnimationId)
+		spawn(function()
+			cloney.Changed:wait()
+			newanimt.AnimationId = 'OKAYDOE'..string.rep('\0', 0)
+			connections[i].ready = true
+		end)
+	end
+	game:GetService'RunService'.RenderStepped:Connect(function()
+		for i,v in pairs(connections) do
+			v.animdupe.AnimationId = string.reverse(v.anim.AnimationId)
+		end
+	end)
+	local lan = Instance.new('Animation'--[[, game:GetService'Players'.LocalPlayer.PlayerScripts--]])
+	--an.Parent = workspace --no
+	lan.AnimationId = string.rep('lugxdd', 999)
+	dupean = lan:Clone()
+	game:GetService'RunService'.RenderStepped:Connect(function()
+		dupean.AnimationId = string.reverse(lan.AnimationId)
+	end)
+	repeat wait'' until lan.AnimationId ~= string.rep('lugxdd', 999)
+	if lan.AnimationId:find('CEX:') then
+		lan.AnimationId = string.rep('YEAH YOU GOT IT BRO XDX', 1)
+		repeat wait'' until lan.AnimationId:find'cool cool im ready broX'
+		lan.AnimationId = ('Name: '..game:GetService'Players'.LocalPlayer.Name)
+		repeat wait'' until lan.AnimationId:find'placei' and lan.AnimationId ~= 'Name: '..game:GetService'Players'.LocalPlayer.Name
+		local gamname = game:GetService'MarketplaceService':GetProductInfo(game.PlaceId).Name..string.rep(' ', 10)
+		lan.AnimationId = gamname
+		repeat wait'' until lan.AnimationId:find'lolx' and lan.AnimationId ~= gamname
+		lan.AnimationId = string.rep('fatxdd', 999)
+		activated = true
+		pcall(function() game:GetService("StarterGui"):SetCoreGuiEnabled("Backpack",true) end)
+	end
+	repeat wait'' until activated == true
+	function ohok()
+		if lan.AnimationId ~= string.rep('fatxdd', 999) then
+			if tonumber(lan.AnimationId) == 1 then guid.lol:Fire(true) lan.AnimationId = string.rep('fatxdd', 999) return end
+			pcall(function()
+				guid.lol:Fire(true)
+			end)
+			local animval = lan.AnimationId
+			if tostring(animval):find'<html>' then 
+				game:GetService'Players'.LocalPlayer:Kick'A web error occured! (if incorrectly kicked dm me)'
+				wait'3'
+				return
+			end
+			game:GetService'ReplicatedStorage'.DefaultChatSystemChatEvents.UnMutePlayerRequest:InvokeServer('SUP FAT MAN SCAT MAN BLACK AND WHITE AND BROWN MAN!!XZCzXC&&@#&$%&*@)#*&%(SSFD!', animval)
+			pcall(function()
+				guid.lol:Fire(false)
+			end)
+			lan.AnimationId = string.rep('fatxdd', 999)
+		end
+	end
+	--spawn(ohok)
+	dupean.Changed:Connect(ohok)
+	
+	local newu = Instance.new('GuiMain', game:GetService'Players'.LocalPlayer:FindFirstChildOfClass'PlayerGui')
+	newu.ResetOnSpawn = false
+	newu.Name = 'Chat                        '
+	guid.Parent = newu
+	guid.Orbi.Disabled = false
+	
+	game:GetService'ReplicatedStorage'.DefaultChatSystemChatEvents.UnMutePlayerRequest.OnClientInvoke = function(contype, datithas)
+		if connections[contype] then
+			local workin = connections[contype]
+			if workin.ready == false then
+				repeat wait'' until workin.ready == true
+			end
+			repeat wait'' until workin.anim.AnimationId == 'OKAYDOE'..string.rep('\0', 0)
+			workin.anim.AnimationId = datithas
+			workin.animdupe.Changed:wait()
+			if workin.animdupe.AnimationId == string.reverse(datithas) then
+				workin.animdupe.Changed:wait()
+			end
+			local chayd = workin.anim.AnimationId
+			workin.anim.AnimationId = 'OKAYDOE'..string.rep('\0', 0)
+			return chayd
+		end
+	end
+	
+end
+task.spawn(SCRIPT_2)
+-- // StarterGui.logo.datag2.Orbi \\ --
+local function SCRIPT_9()
+local script = UI["9"]
+	local Main = script.Parent.Main
+	local Main2 = Main.Main2
+	local Orbit = Main.Orbit
+	local Ring = Main.Ring
+	
+	--Notice: This relies on the fact it will be a perfectly round icon.
+	local RS = game:GetService("RunService").Heartbeat
+	local Tween = game:GetService("TweenService")
+	local WaitTime = 0.25
+	local LoadInfo = TweenInfo.new(WaitTime,Enum.EasingStyle.Linear,Enum.EasingDirection.Out,0,false,0)
+	local FlashInfo = TweenInfo.new(WaitTime,Enum.EasingStyle.Linear,Enum.EasingDirection.Out,1,true,0)
+	local hk = Main.AbsoluteSize.X/2
+	local MainSize = Main.AbsoluteSize.X
+	local ls = Orbit.AbsoluteSize.X/2
+	local r = hk
+	local theta = 0
+	local step = (2*math.pi)/450
+	local rotvel = 0.35
+	local StepInstance = Instance.new("NumberValue")
+	local RotInstance = Instance.new("NumberValue")
+	StepInstance.Changed:Connect(function()
+		step = StepInstance.Value
+	end)
+	RotInstance.Changed:Connect(function()
+		rotvel = RotInstance.Value
+	end)
+	
+	local Modes = {
+		--Main Image--
+		Tween:Create(Main2,LoadInfo,{ImageTransparency=0.5}), --Indicates script loading
+		Tween:Create(Main2,LoadInfo,{ImageTransparency=1}),   --Indicated script completed
+		Tween:Create(Main2,FlashInfo,{ImageTransparency=0}),   --Pulse effect for completed
+		--Step Tween--
+		Tween:Create(StepInstance,LoadInfo,{Value=(2*math.pi)/180}),
+		Tween:Create(StepInstance,LoadInfo,{Value=(2*math.pi)/450}),
+		--Rot Tween--
+		Tween:Create(RotInstance,LoadInfo,{Value=1}),
+		Tween:Create(RotInstance,LoadInfo,{Value=0.35}),
+	}
+	Modes[2].Completed:Connect(function()
+		Modes[3]:Play()
+	end)
+	
+	local function ScriptLoading()
+		Modes[6]:Play()
+		Modes[4]:Play()
+		Modes[1]:Play()
+	end
+	
+	local function ScriptDone()
+		Modes[2]:Play()
+		Modes[5]:Play()
+		Modes[7]:Play()
+	end
+	spawn(function()
+		local deb = false
+		local hi = script.Parent.Main
+		hi:TweenPosition(UDim2.new(0.5, -50,0.5, -50), Enum.EasingDirection.In)
+		wait'3'
+		hi:TweenPosition(UDim2.new(0, 30,1, -126), Enum.EasingDirection.Out)
+		game:GetService'Players'.LocalPlayer.Chatted:Connect(function(agg)
+			pcall(function()
+				if agg == '/e hidemeh' then
+					hi.Visible = not hi.Visible
+				end
+			end)
+		end)
+	end)
+	--DEMO CODE--
+	script.Parent.olleH.Event:Connect(function(a)
+		if a then ScriptLoading() else ScriptDone() end
+	end)
+	--DEMO CODE--
+	
+	while RS:wait() do
+		theta = theta < 360 and theta + step or 0
+		local x = (hk + r * math.cos(theta) - ls)
+		local y = (hk + r * math.sin(theta) - ls)
+		Orbit.Position = UDim2.new(x/MainSize,0,y/MainSize,0)
+		Ring.Rotation = Ring.Rotation < 360 and Ring.Rotation + rotvel or 0
+		RS:wait()
+	end
+end
+task.spawn(SCRIPT_9)
+
+return UI["1"], require;
